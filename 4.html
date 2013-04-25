@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.css">
+    <link rel="stylesheet" href="css/jquery.scroller-1.0.2.css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.3.1.js"></script>
+	<script src="js/jquery.scroller-1.0.2.js"></script>
+	<style>
+		.ui-btn-text {
+			margin-right: 10px;
+		}
+		.ui-navbar-custom .ui-btn .ui-btn-inner { 
+			font-size: 11px!important; 
+			padding-top: 24px!important; 
+			padding-bottom: 0px!important; 
+		}
+		.ui-navbar-custom .ui-btn .ui-icon { 
+			width: 20px!important; 
+			height: 20px!important; 
+			margin-left: -15px!important; 
+			box-shadow: none!important; 
+			-moz-box-shadow: none!important; 
+			-webkit-box-shadow: none!important; 
+			-webkit-border-radius: none !important; 
+			border-radius: none !important; 
+		}
+		#custom .ui-icon { 
+			background:  url(images/53-house-w.png) 50% 50% no-repeat; 
+			background-size: 22px 20px; 
+			border-radius: 0px;
+		}
+	</style>
+	<script>
+	$(document).ready(function() {
+		redraw();
+		$(window).resize(redraw);
+		$("#date1").scroller();
+	});
+	
+	var redraw = function() {
+		$('#content').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);
+		$('#expressions').css('height', $('#content').height());
+	}
+	
+	var play = function(sound) {     
+		if (window.HTMLAudioElement) {
+			var snd = new Audio('');
+		if(snd.canPlayType('audio/ogg')) {
+			snd = new Audio('sounds/' + sound + '.ogg');
+		}
+		else if(snd.canPlayType('audio/mp3')) {
+			snd = new Audio('sounds/' + sound + '.mp3');
+		}
+			snd.play();
+		}
+		else {
+			alert('HTML5 Audio is not supported by your browser!');
+		}
+    }
+	</script>
+</head>
+<body style="background: linear-gradient(rgb(68, 68, 68), rgb(45, 45, 45)) repeat scroll 0% 0% rgb(51, 51, 51);">
+	<div data-role="page" id="page1">
+		<div id="header" data-theme="a" data-role="header">
+			<a data-role="button" href="#page1" data-icon="gear" data-iconpos="right" class="ui-btn-right">
+			</a>
+			<a data-role="button" data-direction="reverse" data-rel="back" data-transition="pop"
+			href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+				Back
+			</a>
+			<h3>
+				Flashcards
+			</h3>
+		</div>
+		<div id="content" data-theme="a" data-role="content">
+			<div class="ui-grid-a">
+				<div id="expressions" class="ui-block-a" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
+					<div>
+						<div>
+							<label for="volume">Volume:</label>
+							<input type="range" name="volume" id="volume" value="5" min="0" max="10"  />
+						</div>
+						<div>
+							<label for="sound">Sound:</label>
+							<select name="slider" id="sound" data-role="slider">
+								<option value="off">Off</option>
+								<option value="on">On</option>
+							</select>
+						</div>
+						<div>
+							<label for="delivery">Ticket Delivery:</label>
+							<select name="delivery" id="delivery" data-native-menu="false" data-theme="d">
+								<option value="">Select one...</option>
+								<optgroup label="Digital">
+									<option value="barcode">E-Ticket</option>
+									<option value="nfc">NFC</option>
+								</optgroup>			
+								<optgroup label="FedEx">
+									<option value="overnight">Overnight</option>
+									<option value="express">Express</option>
+									<option value="ground">Ground</option>
+								</optgroup>
+								<optgroup label="US Mail">
+									<option value="overnight">Overnight</option>
+									<option value="express">Express</option>
+									<option value="standard">Standard</option>
+								</optgroup>			
+							</select>
+						</div>
+						<div>
+							<fieldset data-role="controlgroup" data-type="horizontal">
+								<legend>Map view:</legend>
+								<input type="radio" name="map" id="map1" value="Map" checked="checked" />
+								<label for="map1">Map</label>
+
+								<input type="radio" name="map" id="map2" value="Satellite" />
+								<label for="map2">Satellite</label>
+
+								<input type="radio" name="map" id="map3" value="Hybrid"  />
+								<label for="map3">Hybrid</label>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="ui-navbar-custom" data-role="navbar" data-position="fixed">
+			<ul>
+				<li><a data-theme="a" href="#" data-icon="home" data-iconpos="top">Home</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">Search</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">FlashCards</a></li>
+				<li><a data-theme="a" id="custom" href="#" data-icon="custom" data-iconpos="top">Custom Icon</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">More</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
