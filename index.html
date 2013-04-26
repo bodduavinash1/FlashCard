@@ -36,10 +36,27 @@
 		}
 	</style>
 	<script>
+	var temp = "";
+	
 	$(document).ready(function() {
 		redraw();
 		$(window).resize(redraw);
+		getData();
 	});
+	
+	var getData = function() {
+		$.getJSON('data.json', function(data) {
+			$.each(data, function(i, string) {
+				temp = string;
+			});
+			var random = Math.floor((Math.random() * 3));
+			var h = temp[random].state;
+			$("#state").html(h);
+			h = 'You scored ' + temp[random].score + '<br>' +
+				'(' + temp[random].correct + ' correct)';
+			$("#score").html(h);
+		});
+	}
 	
 	var redraw = function() {
 		$('#content').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);
@@ -196,14 +213,9 @@
 			<div class="ui-grid-a">
 				<div id="expressions3" class="ui-block-a" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
 					<div>
-						<div style="font-size: 100px;">
-							Done!
-						</div>
+						<div id="state" style="font-size: 100px;"></div>
 						<hr style="width: 90%;">
-						<div style="font-size: 40px;">
-							You scored 46%<br>
-							(6/13 correct)
-						</div>
+						<div id="score" style="font-size: 40px;"></div>
 						<div>
 							<button onclick="play('sonar');">Play</button>
 						</div>
