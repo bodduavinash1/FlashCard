@@ -40,7 +40,15 @@
 	
 	var redraw = function() {
 		$('#content').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);
+		$('#content1').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);
+		$('#content2').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);
+		$('#content3').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);
+		$('#content4').css('height', $(window).height() - $('#footer').height() - $('#header').height() - 32);			
 		$('#expressions').css('height', $('#content').height());
+		$('#expressions1').css('height', $('#content1').height());
+		$('#expressions2').css('height', $('#content2').height());
+		$('#expressions3').css('height', $('#content3').height());
+		$('#expressions4').css('height', $('#content4').height());
 	}
 	
 	var play = function(sound) {     
@@ -61,7 +69,7 @@
 	</script>
 </head>
 <body style="background: linear-gradient(rgb(68, 68, 68), rgb(45, 45, 45)) repeat scroll 0% 0% rgb(51, 51, 51);">
-	<div data-role="page" id="page1">
+	<div data-role="page" id="index">
 		<div id="header" data-theme="a" data-role="header">
 			<h3>
 				Flashcards
@@ -72,10 +80,205 @@
 				<div id="expressions" class="ui-block-a" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
 					<div>
 						<div>
-							<a href="./1.html" data-role="button">Page 1</a>
-							<a href="./2.html" data-role="button">Page 2</a>
-							<a href="./3.html" data-role="button">Page 3</a>
-							<a href="./4.html" data-role="button">Page 4</a>
+							<a href="#page1" data-role="button" data-transition="slide">Page 1</a>
+							<a href="#page2" data-role="button" data-transition="slide">Page 2</a>
+							<a href="#page3" data-role="button" data-transition="slide">Page 3</a>
+							<a href="#page4" data-role="button" data-transition="slide">Page 4</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="ui-navbar-custom" data-role="navbar" data-position="fixed">
+			<ul>
+				<li><a data-theme="a" href="#" data-icon="home" data-iconpos="top">Home</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">Search</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">FlashCards</a></li>
+				<li><a data-theme="a" id="custom" href="#" data-icon="custom" data-iconpos="top">Custom Icon</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">More</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- page1 -->
+	<div data-role="page" id="page1">
+		<div data-theme="a" data-role="header">
+			<a data-role="button" data-direction="reverse" data-rel="back" data-transition="pop"
+			href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+				Back
+			</a>
+			<h3>
+				Flashcards
+			</h3>
+		</div>
+		<div id="content1" data-theme="a" data-role="content">
+			<div id="expressions1" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
+				Content
+			</div>
+		</div>
+		<div class="ui-navbar-custom" data-role="navbar" data-position="fixed">
+			<ul>
+				<li><a data-theme="a" href="#" data-icon="home" data-iconpos="top">Home</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">Search</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">FlashCards</a></li>
+				<li><a data-theme="a" id="custom" href="#" data-icon="custom" data-iconpos="top">Custom Icon</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">More</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- page2 -->
+	<div data-role="page" id="page2">
+		<div data-theme="a" data-role="header">
+			<a data-role="button" href="#page1" data-icon="gear" data-iconpos="right" class="ui-btn-right">
+			</a>
+			<a data-role="button" data-direction="reverse" data-rel="back" data-transition="pop"
+			href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+				Back
+			</a>
+			<h3>
+				Flashcards
+			</h3>
+		</div>
+		<div id="content2" data-theme="a" data-role="content">
+			<div class="ui-grid-a">
+				<div id="expressions2" class="ui-block-a" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
+					<ul data-role="listview" data-divider-theme="c" style="width: 100%; height: 100%; margin: 30px 0px;">
+						<li data-role="list-divider" role="heading">Divider</li>
+						<li data-theme="a"><a href="#" data-transition="slide">List 1</a></li>
+						<li data-theme="a"><a href="#" data-transition="slide">List 2</a></li>
+						<li data-theme="a"><a href="#" data-transition="slide">List 3</a></li>
+						<li data-theme="a"><a href="#" data-transition="slide">List 4</a></li>
+						<li data-theme="a"><a href="#" data-transition="slide">List 5</a></li>
+						<li data-theme="a" data-icon="custom" id="custom" >
+							<a href="#" data-transition="slide">List 6
+								<span class="ui-li-count">
+									<div style="width: 100px; height: 20px; vertical-align: center; display: table-cell; text-align: center;">
+										<div style="background: orange; width: 19%; height: 100%;">
+											<span style="text-align: center;">11%</span>
+										</div>
+									</div>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="ui-navbar-custom" data-role="navbar" data-position="fixed">
+			<ul>
+				<li><a data-theme="a" href="#" data-icon="home" data-iconpos="top">Home</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">Search</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">FlashCards</a></li>
+				<li><a data-theme="a" id="custom" href="#" data-icon="custom" data-iconpos="top">Custom Icon</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">More</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- page 3-->
+	<div data-role="page" id="page3">
+		<div id="header" data-theme="a" data-role="header">
+			<a data-role="button" href="#page1" data-icon="gear" data-iconpos="right" class="ui-btn-right">
+			</a>
+			<a data-role="button" data-direction="reverse" data-rel="back" data-transition="pop"
+			href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+				Back
+			</a>
+			<h3>
+				Flashcards
+			</h3>
+		</div>
+		<div id="content3" data-theme="a" data-role="content">
+			<div class="ui-grid-a">
+				<div id="expressions3" class="ui-block-a" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
+					<div>
+						<div style="font-size: 100px;">
+							Done!
+						</div>
+						<hr style="width: 90%;">
+						<div style="font-size: 40px;">
+							You scored 46%<br>
+							(6/13 correct)
+						</div>
+						<div>
+							<button onclick="play('sonar');">Play</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="ui-navbar-custom" data-role="navbar" data-position="fixed">
+			<ul>
+				<li><a data-theme="a" href="#" data-icon="home" data-iconpos="top">Home</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">Search</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">FlashCards</a></li>
+				<li><a data-theme="a" id="custom" href="#" data-icon="custom" data-iconpos="top">Custom Icon</a></li>
+				<li><a data-theme="a" href="#" data-icon="search" data-iconpos="top">More</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- page 4-->
+	<div data-role="page" id="page4">
+		<div id="header" data-theme="a" data-role="header">
+			<a data-role="button" href="#page1" data-icon="gear" data-iconpos="right" class="ui-btn-right">
+			</a>
+			<a data-role="button" data-direction="reverse" data-rel="back" data-transition="pop"
+			href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+				Back
+			</a>
+			<h3>
+				Flashcards
+			</h3>
+		</div>
+		<div id="content4" data-theme="a" data-role="content">
+			<div class="ui-grid-a">
+				<div id="expressions4" class="ui-block-a" style="width: 100%; text-align: center; background-color: grey; border-radius: 30px;">
+					<div>
+						<div>
+							<label for="volume">Volume:</label>
+							<input type="range" name="volume" id="volume" value="5" min="0" max="10"  />
+						</div>
+						<div>
+							<label for="sound">Sound:</label>
+							<select name="slider" id="sound" data-role="slider">
+								<option value="off">Off</option>
+								<option value="on">On</option>
+							</select>
+						</div>
+						<div>
+							<label for="delivery">Ticket Delivery:</label>
+							<select name="delivery" id="delivery" data-native-menu="false" data-theme="d">
+								<option value="">Select one...</option>
+								<optgroup label="Digital">
+									<option value="barcode">E-Ticket</option>
+									<option value="nfc">NFC</option>
+								</optgroup>			
+								<optgroup label="FedEx">
+									<option value="overnight">Overnight</option>
+									<option value="express">Express</option>
+									<option value="ground">Ground</option>
+								</optgroup>
+								<optgroup label="US Mail">
+									<option value="overnight">Overnight</option>
+									<option value="express">Express</option>
+									<option value="standard">Standard</option>
+								</optgroup>			
+							</select>
+						</div>
+						<div>
+							<fieldset data-role="controlgroup" data-type="horizontal">
+								<legend>Map view:</legend>
+								<input type="radio" name="map" id="map1" value="Map" checked="checked" />
+								<label for="map1">Map</label>
+
+								<input type="radio" name="map" id="map2" value="Satellite" />
+								<label for="map2">Satellite</label>
+
+								<input type="radio" name="map" id="map3" value="Hybrid"  />
+								<label for="map3">Hybrid</label>
+							</fieldset>
 						</div>
 					</div>
 				</div>
